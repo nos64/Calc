@@ -55,7 +55,7 @@ document.querySelector('.buttons').addEventListener('click', (event) => {
         console.log(a, b, sign);
     }
 
-    //Смена знака (нажата клавиша +/-)
+    //Смена знака (нажата клавиша +/- или %)
     if (special.includes(key)) {
         if (key === '+/-') {
             if (b === '' && sign === '') {
