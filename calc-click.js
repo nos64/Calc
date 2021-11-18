@@ -1,3 +1,4 @@
+{
 let a = ''; //First number
 let b = ''; // Second number
 let sign = ''; // sign operation
@@ -35,7 +36,6 @@ document.querySelector('.buttons').addEventListener('click', (event) => {
     if (digit.includes(key)) {
         if (b === '' && sign === ''){
             a += key;
-    
             out.textContent = a;
         } else if (a !== '' && b !== '' && finish) { // Продолжение вычислений после нажатия равно
             b = key; // Обнуляем переменную а
@@ -59,7 +59,7 @@ document.querySelector('.buttons').addEventListener('click', (event) => {
     if (special.includes(key)) {
         if (key === '+/-') {
             if (b === '' && sign === '') {
-                a = -a
+                a = -a;
                 out.textContent = a;
             } else {
                 b = -b
@@ -67,8 +67,14 @@ document.querySelector('.buttons').addEventListener('click', (event) => {
             }
         } else if (key === '%') {
             if (b === '' && sign === '') {
-                a = 0;
-                out.textContent = a;
+                a = '';
+                b = '';
+                out.textContent = 0;
+            } else if (a !== '' && b !== '' && finish) {
+                finish = false; // Обнуляем финишь
+                a = a * a /100
+            out.textContent = a;    
+                
             } else {
                 b = (a * b) / 100;
                 out.textContent = `${(a * b) / 100}%`;
@@ -130,4 +136,4 @@ document.querySelector('.buttons').addEventListener('click', (event) => {
 
 
 })
-
+}
